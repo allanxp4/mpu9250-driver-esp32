@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "esp32_driver.h"
+#include "mpu_esp32_driver.h"
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "i2c.h"
+#include "driver/i2c.h"
 
 #define I2C_MASTER_PORT I2C_NUM_1
 #define I2C_TIMEOUT 1000 / portTICK_RATE_MS
@@ -18,7 +18,7 @@ esp_err_t esp_i2c_init() {
         .master.clk_speed = 100000
     };
     i2c_param_config(I2C_MASTER_PORT, &config);
-    i2c_driver_install(I2C_MASTER_PORT, config.mode, 0, 0, 0);
+    return i2c_driver_install(I2C_MASTER_PORT, config.mode, 0, 0, 0);
 }   
 
 int i2c_write(unsigned char slave_addr, unsigned char reg_addr, unsigned char length, unsigned char const *data) {

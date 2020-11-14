@@ -104,7 +104,10 @@ static inline int reg_int_cb(struct int_param_s *int_param)
 #define fabs(x)     (((x)>0)?(x):-(x))
 
 #elif defined MOTION_DRIVER_TARGET_ESP32
-/* Defined in esp32_driver.c */
+#define log_i(...)     do {} while (0)
+#define log_e(...)     do {} while (0)
+#define min(a,b) ((a<b)?a:b)
+/* Rest defined in mpu_esp32_driver.c */
 
 #else
 #error  Gyro driver is missing the system layer implementations.
@@ -3283,7 +3286,7 @@ int mpu_lp_motion_interrupt(unsigned short thresh, unsigned char time,
         /*Bypass accel DLPF. */
         data[0] = BIT_ACCL_FC_B | temp[0];
         if (i2c_write(st.hw->addr, st.reg->accel_cfg2, 1, data))
-        	goto lp_int_restore;
+            goto lp_int_restore;
 
 		/* Enable interrupt. */
 		data[0] = BIT_MOT_INT_EN;

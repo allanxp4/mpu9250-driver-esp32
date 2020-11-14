@@ -3,10 +3,9 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_spi_flash.h"
-#include "i2c.h"
-#include "esp32_driver.h"
-#include "inv_mpu.h"
-
+#include "driver/i2c.h"
+#include "mpu9250/mpu_esp32_driver.h"
+#include "mpu9250/inv_mpu.h"
 
 void app_main(void)
 {
@@ -21,7 +20,7 @@ void app_main(void)
     mpu_set_lpf(5);
     mpu_set_sample_rate(10);
     mpu_set_compass_sample_rate(10);
-
+    
     while(true) {
         short data[3];
         if(!mpu_get_accel_reg(data, NULL)){
@@ -32,7 +31,7 @@ void app_main(void)
             short gy = data[1];
             short gz = data[2];
 
-            printf("x: %h, y: %h, z: %h", gx, gy, gz);
+            printf("x: %hi y: %hi z: %hi", gx, gy, gz);
         }
     }
 

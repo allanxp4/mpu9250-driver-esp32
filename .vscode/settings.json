@@ -31,6 +31,13 @@
     "xloctime": "cpp",
     "xtree": "cpp",
     "xutility": "cpp",
-    "*.ipp": "cpp"
+    "*.ipp": "cpp",
+    "i2c.h": "c",
+    "chrono": "c",
+    "complex": "c",
+    "cstdlib": "c",
+    "algorithm": "c",
+    "random": "c",
+    "xstring": "c"
   }
 }
