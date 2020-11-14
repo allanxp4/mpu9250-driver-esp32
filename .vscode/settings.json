@@ -1,0 +1,36 @@
+{
+  "C_Cpp.clang_format_style": "Visual Studio",
+  "editor.formatOnSave": false,
+  "[cpp]": {
+    "editor.quickSuggestions": true
+  },
+  "[c]": {
+    "editor.quickSuggestions": true
+  },
+  "C_Cpp.intelliSenseEngineFallback": "Enabled",
+  "idf.portWin": "COM5",
+  "files.associations": {
+    "array": "cpp",
+    "codecvt": "cpp",
+    "compare": "cpp",
+    "cstddef": "cpp",
+    "functional": "cpp",
+    "future": "cpp",
+    "limits": "cpp",
+    "memory": "cpp",
+    "mutex": "cpp",
+    "sstream": "cpp",
+    "system_error": "cpp",
+    "type_traits": "cpp",
+    "vector": "cpp",
+    "xhash": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xlocbuf": "cpp",
+    "xlocmon": "cpp",
+    "xloctime": "cpp",
+    "xtree": "cpp",
+    "xutility": "cpp",
+    "*.ipp": "cpp"
+  }
+}
